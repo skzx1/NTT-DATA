@@ -12,6 +12,7 @@
 
 ## เอกสาร
 
+- [สรุปสำหรับ AWS Cloud Coaching: บริการ โมเดล และข้อมูล](docs/coaching-session-02.md) · [PDF 6 หน้า](docs/coaching/MarginSight-AWS-Coaching-2026-10-15.pdf)
 - [สถานะและสิ่งที่ยังขาด](docs/status.md)
 - [ผลทดสอบและขอบเขตหลักฐาน](docs/verification.md)
 - [วิธีใช้](docs/usage.md)
