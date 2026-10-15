@@ -51,3 +51,10 @@ Batchperformance: financialAPIใช้งานDBพร้อมกันไม
 สร้างไฟล์ส่งมอบทั้ง source/deploy พร้อม SHA-256 ด้วย `python scripts/package-release.py`. ใช้ไฟล์ `MarginSight-deploy-2026-10-15.zip` รุ่นส่งมอบที่ตรวจ manifest ก่อนอัปโหลด ไม่เลือก ZIPเก่าตามชื่อ latest โดยไม่มี hash. Bundlesและstatic exportมีแล้ว; ห้ามนำไฟล์ source ไปชี้ CodeUriแทนbundleโดยไม่build.
 
 Auth regression gate: `python3 scripts/cloud-auth-diagnose.py --verify` ต้องผ่านGET/POSTpreflight204, foreignOriginไม่มีACAO, protectedGET401. OPTIONS routeไม่ใช้authorizerและhandlerตอบempty204ก่อนอ่านข้อมูล; CORSยังexactweborigin ไม่มีwildcard. ผูกร้านผู้ใช้ที่ระบุด้วย `cloud-link-verified-demo.py --email <user-provided-email>` เฉพาะบัญชีที่ยืนยันแล้วและstoreDEMO-001 ห้ามเลือกuserคนแรก/ปลอมsub/แก้password. scriptใช้outputsจากstackเต็ม ไม่ใช้foundationที่ไม่มีSeedFunction.
+# อัปเดตดีไซน์เว็บและ Cognito — 15 October 2026
+
+รอบ UI ใช้การ build/static publish บน bucket/distribution เดิม ไม่ต้อง execute CloudFormation change set เมื่อ template/backend ไม่เปลี่ยน ตรวจ account และ Budget ตาม runbook เดิมก่อนรัน `npm ci --ignore-scripts`, `npm run build:web`, `bash scripts/cloud-publish.sh` ใน CloudShell ของบัญชีที่อนุญาต จากนั้น invalidation `/`, `/index.html`, `/config.json`, `/404.html` บน distribution เดิม และตรวจ browser จริง
+
+Classic Cognito branding ใช้ `python3 scripts/cloud-brand-auth.py` แยกต่างหาก ต้องมี boto3 และสิทธิ์ describe/get/set UI customization ของ pool/client เดิม Script ตรวจ account/Region/domain/branding version และสำรอง CSS/ImageUrl เดิมใน `.local/cognito-ui-before.json` ก่อนแก้ ไม่เปลี่ยน password policy/scopes/user attributes ถ้าไม่มีสิทธิ์ ห้ามขยาย IAM เพื่อทำธีมเอง ให้รายงานเฉพาะส่วน branding ที่ติดขัด
+
+Rollback เว็บโดย build/publish จาก commit รุ่นก่อนที่ตรวจแล้ว (`079affe` ก่อน redesign) บน resources เดิม ส่วน Cognito ให้ตรวจ backup ของเครื่อง deploy แล้วคืน style/โลโก้เดิมในหน้าตั้งค่า Hosted UI (classic) ของ app client ไม่ย้อนนโยบาย authentication หรือข้อมูลร้านไปด้วย
