@@ -133,3 +133,7 @@ VERIFIED_AWS_BROWSER: เผยแพร่staticจากad7bb9fบนS3/CloudF
 ## Repository split / AWS handoff — 15 October 2026
 
 Backend npm ci/verify ผ่าน43tests/TypeScript/bundledhandlers/template structure/package. Frontend npm ci/verify ผ่าน5golden+artifact checks/TypeScript/policy/Nextstaticexport/package. Lockfiles ตัดอีก workspace ออกแล้ว ไม่มี cross-repo source imports. ตรวจ source ที่ย้าย/IaC semantics ตรงต้นทางและไม่ stage ignored files. Secret heuristic ทั้งสอง repoไม่พบ candidates. ไม่เรียก AWS/SAM deploy ในรอบนี้ ผลAWSก่อนหน้าไม่ใช่ผลรอบแยก. คู่มือส่งต่อพร้อม AI prompt อยู่ AWS-HANDOFF.md.
+
+GitHub Actions VERIFIED (15 October 2026): clean Ubuntu checkout/npm ci/npm run verify completed successfully for initial split commit ac4a325. This independently verifies no sibling monorepo/dependencies are required. Run: https://github.com/skzx1/MarginSight-Backend/actions/runs/38744536925 . This is CI/local build evidence, not AWS deployment evidence.
+
+GitHub Actions VERIFIED (15 October 2026): clean Ubuntu checkout/npm ci/npm run verify completed successfully for initial split commit 55f5d6c. This independently verifies no sibling monorepo/dependencies are required. Run: https://github.com/skzx1/MarginSight-Frontend/actions/runs/38744557321 . This is CI/local build evidence, not AWS deployment evidence.
