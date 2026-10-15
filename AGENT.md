@@ -70,7 +70,7 @@ These files are the execution specification requested by the user. When instruct
 - S3 uploads/downloads are private and presigned to server-selected keys after authorization. Enforce file/job ownership on completion.
 - Keep all `NEXT_PUBLIC_*` values nonsecret. No AWS access key, model credential, or LINE secret in browser code or repository.
 - Lambda uses scoped execution roles. Deployment uses the verified team SSO profile.
-- Public routes are limited to basic health and signature-verified LINE webhook, if enabled. Public webhook status does not authorize data access.
+- Normal merchant routes retain Cognito JWT + membership checks. By explicit user request (15 Oct 2026), POST /demo/session issues an opaque, expiring capability for one new MOCK-only tenant; /demo/api/* requires that capability, same-origin checks, strict tenant binding and global/session quotas. No guest capability is accepted on normal merchant routes. Health and the signature-verified LINE webhook retain their separate public behavior.
 - LINE signature verification uses raw body; link LINE users to verified web memberships through expiring, single-use codes; dedup events.
 - Logs contain structured IDs and safe error summaries, not JWTs, signed URLs, images, customer PII, or secret payloads.
 

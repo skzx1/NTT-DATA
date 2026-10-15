@@ -11,14 +11,21 @@ import {costSchema,ruleSchema,enrollmentSchema,simulationSchema} from './schemas
 import {createImport} from './importer.js';
 import {createPersonalStore} from './onboarding.js';
 import {boundedMap} from './bounded-map.js';
+import {createDemoSession,authorizeDemo} from './demo.js';
 import type {InputCache} from './repository.js';
 import type {Context} from './context.js';
-export interface Request {method:string;path:string;authorization?:string;query:Record<string,string>;body?:any}
+export interface Request {method:string;path:string;authorization?:string;origin?:string;query:Record<string,string>;body?:any}
 export async function route(ctx:Context,r:Request):Promise<any>{
  const {repo}=ctx,path=r.path.replace(/\/$/,''),post=r.method==='POST';
  if(path==='/health'&&r.method==='GET')return {service:'MarginSight',status:'ok',formulaVersion:FORMULA_VERSION};
  if(path==='/dev/login'&&post)return {accessToken:localSession(r.body?.user??'demo-a'),expiresIn:3600};
- const user=await subject(r.authorization);if(path==='/me/stores'&&r.method==='GET')return {items:await repo.stores(user)};if(path==='/me/store'&&post)return createPersonalStore(repo,user,r.body);
+ if(path==='/demo/session')return createDemoSession(repo,r);
+ if(path.startsWith('/demo/api/')){const request={...r,path:path.slice('/demo/api'.length)},session=await authorizeDemo(repo,request);if(request.path==='/stores/'+session.store+'/integrations'&&r.method==='GET')return {line:{configured:false},ai:{enabled:process.env.AI_ENABLED==='true'},dataOrigin:'MOCK'};return dispatch(ctx,request,session.subject)}
+ return dispatch(ctx,r,await subject(r.authorization));
+}
+async function dispatch(ctx:Context,r:Request,user:string):Promise<any>{
+ const {repo}=ctx,path=r.path.replace(/\/$/,''),post=r.method==='POST';
+ if(path==='/me/stores'&&r.method==='GET')return {items:await repo.stores(user)};if(path==='/me/store'&&post)return createPersonalStore(repo,user,r.body);
  const match=path.match(/^\/stores\/([^/]+)(\/.*)?$/);demand(match,'NOT_FOUND',404);const store=id(decodeURIComponent(match[1])),rest=match[2]??'';const membership=await repo.member(user,store,post);if(post&&membership.personal&&['/imports','/receipts','/fee-rules','/enrollments'].includes(rest))demand(r.body?.dataOrigin==='REAL','PERSONAL_STORE_REQUIRES_REAL_DATA');const month=r.query.month??new Date().toISOString().slice(0,7);
  const inputCache:InputCache={jobs:new Map()};const snapshot=async(platform:string,orderId:string)=>{const input=await repo.input(store,platform,orderId,inputCache),result=calculate(input),inputHash=hash({formulaVersion:FORMULA_VERSION,input});await repo.db.put('jobs',{PK:pk(store),SK:'CALC#'+inputHash,version:1,value:{store,inputHash,input,result,createdAt:new Date().toISOString()}},0);return {...result,store,inputHash,postedFees:input.fees,ledgerVersion:input.order.ledgerVersion}};
  const range=async()=>{const orders:any[]=[];let cursor:string|undefined;do{const page=await repo.orders(store,month,100,cursor);orders.push(...page.items);cursor=page.next;demand(orders.length<=1000&&! (orders.length===1000&&cursor),'EXPORT_RANGE_TOO_LARGE',413)}while(cursor);return orders};

@@ -31,7 +31,7 @@ with zipfile.ZipFile(deploy,'w',zipfile.ZIP_DEFLATED) as z:
    if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ['.pyc','.map']:z.writestr(p.relative_to(ROOT).as_posix(),checked(p))
  for name in ['template.yaml','template-foundation.yaml','template-external-roles.yaml']:z.writestr(name,checked(ROOT/name))
 
-report={'releaseDate':DATE,'status':'PARTIAL_WITH_EXTERNAL_BLOCKERS','account':'109991964227','region':'ap-southeast-1','aiRegion':'us-east-1','formulaVersion':'margin-v1.1.0','backendTests':39,'webUrl':'https://d2y04qc334m0rd.cloudfront.net','archives':{},'bundleSha256':{}}
+report={'releaseDate':DATE,'status':'PARTIAL_WITH_EXTERNAL_BLOCKERS','account':'109991964227','region':'ap-southeast-1','aiRegion':'us-east-1','formulaVersion':'margin-v1.1.0','backendTests':43,'webUrl':'https://d2y04qc334m0rd.cloudfront.net','archives':{},'bundleSha256':{}}
 for p in [source,deploy]:
  with zipfile.ZipFile(p) as z:
   assert z.testzip() is None

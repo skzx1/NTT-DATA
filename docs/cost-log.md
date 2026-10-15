@@ -35,3 +35,6 @@ IAMroles7ของstackใหม่สร้างแยกจากCloudFormati
 รอบแก้login: อัปเดตAPI route/permissionเฉพาะOPTIONS และhandler204 พร้อม invoke seedสำหรับverified Cognito userหนึ่งบัญชีในMOCK DEMO-001. ไม่มีmodelcalls/บริการคำนวณใหม่/paid capacity. Public financial APIsยังprotected.
 
 Self-service15ตุลาคม: deployโค้ดLambda/เว็บบนบริการเดิม ไม่มีIAMroleหรือบริการใหม่; เพิ่มprivatePROFILE/OWNERmembershipของTonnamShop2rowsและอ่านตรวจร้านว่าง. ไม่มีmodeltraining/modelcallsจากflowนี้. Budgetอ่าน04:49ZยังActualSpendUSD0.008 timestamp03:55:27.194Z จึงไม่ใช้เป็นยอดreal-time. หนึ่งร้านส่วนตัวต่อบัญชีและimport/AIlimitsยังใช้เดิม.
+
+
+15ตุลาคม2026 12:16น.ไทย: ตรวจบัญชี109991964227และBudget Hackathon-Team10ซ้ำก่อนเตรียมเดโม. limit350USD; ActualSpendยัง0.008USDจากsnapshot03:55:27.194Zเดิม ยอดล่าช้าไม่ใช่ยอดคงเหลือทันที. สร้างCognitoเดโม1บัญชีและMOCK13recordsในDynamoDBตารางเดิม ไม่มีstack/role/paidcapacityใหม่ ไม่เรียกAIหรือส่งอีเมลในรอบเตรียม. รอตั้งรหัสโดยผู้ใช้และทดสอบCognito/browser; เมื่อทดลองAI/OCRยังอยู่ภายใต้limiterเดิม.

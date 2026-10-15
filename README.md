@@ -36,3 +36,6 @@ OCR เรียกโมเดลจริงกับบิลสังเค�
 ผู้ช่วยใช้pre-trained Amazon Nova Liteผ่านBedrock ไม่ได้fine-tuneหรือฝึกเพิ่มด้วยข้อมูลร้าน. Trainingpipeline/SageMakerไม่ได้ถูกสร้างในระบบนี้.
 
 ก่อนอัปโหลด GitHub: ดู [ผลตรวจ secrets และไฟล์ที่กันออก](docs/github-safety.md). เอกสารต้นฉบับและหลักฐาน AWS เก็บไว้ในเครื่องตาม .gitignore.
+
+
+ปุ่ม **เข้าเดโมระบบเต็ม** เปิดร้าน MOCK แยกสำหรับรอบทดลอง โดยไม่ต้องสมัครหรือกรอกรหัสผ่าน (session2ชั่วโมง). ใช้เมนูหลักและbackendเดียวกับระบบร้าน; LINEยังต้องมีChannel. ข้อมูลร้านจริงใช้Cognitoตามเดิม. ดูขอบเขต/สถานะ deploy ใน docs/status.md.

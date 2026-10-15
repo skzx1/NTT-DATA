@@ -66,6 +66,10 @@
         ],
         "SSESpecification": {
           "SSEEnabled": true
+        },
+        "TimeToLiveSpecification": {
+          "AttributeName": "expiresAt",
+          "Enabled": true
         }
       }
     },
@@ -123,7 +127,11 @@
               "ProjectionType": "ALL"
             }
           }
-        ]
+        ],
+        "TimeToLiveSpecification": {
+          "AttributeName": "expiresAt",
+          "Enabled": true
+        }
       }
     },
     "Jobs": {
@@ -243,6 +251,12 @@
               "Id": "ExpirePrototypeUploads",
               "Status": "Enabled",
               "ExpirationInDays": 30
+            },
+            {
+              "Id": "ExpireGuestDemoUploads",
+              "Status": "Enabled",
+              "Prefix": "DEMO-GUEST-",
+              "ExpirationInDays": 1
             }
           ]
         }

@@ -98,3 +98,13 @@ AWS deploymentของself-service: local39tests/buildผ่านก่อน�
 Agent-observed browser: บัญชีCognitoที่มีเซสชันอยู่เปิดหน้าสร้างร้าน กรอก TonnamShop แล้ว POST /me/store สำเร็จ → GET /me/stores/ภาพรวมร้านสำเร็จ เห็นร้านว่างและขั้นตอนเริ่มใช้. [ภาพAWS](evidence/aws-tonnamshop-self-service.png). ไม่มีการกรอก/อ่านpassword/tokenโดยagent. ไม่เอาlocalfixtureมาปนในTonnamShop และไม่อ้างว่าได้ทดสอบสดmerchantfilesหรือfreshregistrationด้วยสองบัญชีแล้ว.
 
 AWSread-back2026-10-15T04:49Z: ตรวจsubjectเจ้าของจากstoreprofileพบCognitoบัญชีจริงCONFIRMED/email_verified=true; PROFILE/membershipOWNER/personal/nameตรงกันและร้านcatalog0/order0. POST /me/storeไม่มีtoken401; GET/POSTpreflight204และforeignoriginไม่มีACAO. StackUPDATE_COMPLETE/Lambda7Successful/privateS3ยัง403. [ผลร้าน](evidence/aws/self-service-store-evidence.json), [inventory](evidence/aws/aws-deployment-evidence.json). หลักฐานไม่บันทึกemail/sub/password/token.
+
+
+## Full-system demo identity — 15 October 2026
+
+User requested a separate full app demo without a contact email. VERIFIED_LOCAL: generated 13 MOCK seed rows with the existing seed/repository engine; independent assertions revenue20000/fee4600/profit900satang; subject denied membership in DEMO-001 and DEMO-002. VERIFIED_AWS_OPERATOR: dedicated Cognito alias under reserved .invalid domain, SUPPRESS invitation, isolated DEMO-FULL-20261015 tenant; atomic 13-row insert and exact consistent read-back; subject has only this demo membership. No real merchant data or personal-store membership copied. Account currently FORCE_CHANGE_PASSWORD; password activation is handed to user via hidden interactive input. New demo Cognito/browser workflow is NOT_TESTED until password/login completes. No authentication bypass or public write route added. [Evidence](evidence/aws/full-demo-account.json). Overall remains PARTIAL_WITH_EXTERNAL_BLOCKERS.
+
+
+## One-click full app demo — local verification
+
+43backendtestsผ่านพร้อมtsc/policy/build/staticexport/bundledhandlers. เพิ่ม4testsอิสระ: sessionแต่ละรอบแยกร้าน/hashไม่เก็บtokenplaintext/normalCognitopathdeny/expiry; goldenprofit9บาทและdiscount15%ขาดทุน14.10บาท/evidence/rules/reconciliation/export; MOCK-only/tenant-boundCSVworker/conflictreview/TTL/AIandimportcaps; originboundcreation/global20sessioncap. Localbrowserlocalhost4050กดปุ่มจริงแล้วเห็นdashboard9บาทและทั้ง10เมนูโดยไม่มีruntimeerror. AWSguestflowยังต้องตรวจหลังdeploy.

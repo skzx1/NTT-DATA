@@ -562,3 +562,8 @@ ETDA เสนอเครื่องมือ TTR ของแพลตฟอ�
 ## Session amendment — 15 October 2026: สมัครแล้วเริ่มใช้เอง
 
 ผู้ใช้ขอself-service. เพิ่มPOST /me/storeที่authenticated สร้างprivatepersonalstoreว่างและmembershipOWNERแบบatomic หนึ่งร้านต่อsubject ไม่เข้าร่วมร้านเดิมอัตโนมัติ. เพิ่มmanualproductและmerchant-v1 canonical REAL inputพร้อมownershipack, explicitmoney/unit validation; nativeplatformadaptersยังต้องมีauthorizedsamples/mapping. ดูdocs/data-contracts.md. ยังคงข้อจำกัดregion/budget/financialengineและtenant checksเดิม.
+
+
+## Session amendment — 15 October 2026: one-click full app demo
+
+ผู้ใช้ขอปุ่มเข้าเดโมระบบร้านโดยไม่ใช้อีเมล/รหัส และให้pushการแก้ไขขึ้นGitHub. เพิ่มguestcapabilityอายุ2ชั่วโมงที่เก็บเฉพาะSHA256ในJobs พร้อมsubject/storeMOCKใหม่ต่อรอบ. ใช้route/domain/import/OCR/assistantเดิมภายใต้membershipและstorebinding. normalmerchantAPIยังCognitoJWTเหมือนเดิม; guesttokenเข้าไม่ได้. ปิดpersonalstorecreation/REALinput/LINElinkในguest. Globalcaps: sessions20/day, AI/OCRrequests20/dayรวม, imports10/day, writes200/day; ต่อsessionAI/OCRรวม3, imports3,writes40. ค่ารายวันนับUTC(reset07:00ไทย). TTLguestrows24ชั่วโมง(ลบจริงภายหลังโดยDynamoDB), S3guestprefixlifecycle1วัน. DemoEnabled=falseเป็นค่าเริ่มต้น; operatorเปิดบนstackเดิมตามscopeนี้. ไม่มีstaticpassword/clientsecret. LINE/nativeplatformและOCRaccuracyblockersเดิมคงอยู่.
