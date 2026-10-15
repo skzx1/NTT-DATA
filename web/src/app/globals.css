@@ -1651,6 +1651,8 @@ footer {
 footer,.auth-bottom {
   color:#66766e
 }
+.button-link{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:11px 16px;margin-top:12px;background:var(--green);color:white;border:1px solid var(--green);border-radius:9px;text-decoration:none;font-weight:600}
+.button-link:hover{background:var(--green-dark);color:white}.button-link.secondary{background:white;color:var(--green);border-color:var(--border)}
 .nav-caption {
   color:#66766e
 }
