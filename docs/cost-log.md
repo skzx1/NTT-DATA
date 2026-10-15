@@ -38,3 +38,6 @@ Self-service15ตุลาคม: deployโค้ดLambda/เว็บบนบ
 
 
 15ตุลาคม2026 12:16น.ไทย: ตรวจบัญชี109991964227และBudget Hackathon-Team10ซ้ำก่อนเตรียมเดโม. limit350USD; ActualSpendยัง0.008USDจากsnapshot03:55:27.194Zเดิม ยอดล่าช้าไม่ใช่ยอดคงเหลือทันที. สร้างCognitoเดโม1บัญชีและMOCK13recordsในDynamoDBตารางเดิม ไม่มีstack/role/paidcapacityใหม่ ไม่เรียกAIหรือส่งอีเมลในรอบเตรียม. รอตั้งรหัสโดยผู้ใช้และทดสอบCognito/browser; เมื่อทดลองAI/OCRยังอยู่ภายใต้limiterเดิม.
+
+
+15ตุลาคม2026 รอบone-clickdemo: อัปเดตstack/7Lambdaบนบริการเดิม ไม่เพิ่มIAMrole/paidcapacity/trainingjob. เปิดDemoEnabled พร้อมTTL4ตาราง/lifecycleS3guest1วันและglobal/sessionquotas. ทดสอบguest3sessions (browser1+HTTP2), จำลองราคา2ครั้ง และผู้ช่วยผ่านbrowser1request; อาจมีหลายmodelcallsภายใต้orchestrationlimit จึงไม่อ้าง1request=1inference. ทำCloudFrontinvalidation3paths. Budgetก่อนเริ่มยังActualSpend0.008USDจากsnapshot03:55:27.194Z ไม่ใช่ยอดreal-time. กำหนดเป้าหมายทดลอง25USDภายใต้เครดิตทีม350USDรวม; ไม่รับรองhardcapจากBudgets.

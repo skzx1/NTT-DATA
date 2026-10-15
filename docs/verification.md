@@ -108,3 +108,14 @@ User requested a separate full app demo without a contact email. VERIFIED_LOCAL:
 ## One-click full app demo — local verification
 
 43backendtestsผ่านพร้อมtsc/policy/build/staticexport/bundledhandlers. เพิ่ม4testsอิสระ: sessionแต่ละรอบแยกร้าน/hashไม่เก็บtokenplaintext/normalCognitopathdeny/expiry; goldenprofit9บาทและdiscount15%ขาดทุน14.10บาท/evidence/rules/reconciliation/export; MOCK-only/tenant-boundCSVworker/conflictreview/TTL/AIandimportcaps; originboundcreation/global20sessioncap. Localbrowserlocalhost4050กดปุ่มจริงแล้วเห็นdashboard9บาทและทั้ง10เมนูโดยไม่มีruntimeerror. AWSguestflowยังต้องตรวจหลังdeploy.
+
+
+## One-click demo AWS read-back — 15 October 2026
+
+Stack marginsight UPDATE_COMPLETE หลัง execute change set samcli-deploy1792042662 (source a2aaeb0), LastUpdatedTime 2026-10-15T05:42:09.587Z. ส่ง web/out ไป private web bucket และ CloudFront; health ผ่าน. Change set ไม่มี Remove/IAM resource ใหม่/definite replacement; table keys และ Cognito route security คงเดิม.
+
+VERIFIED_AWS_BROWSER: กด “เข้าเดโมระบบเต็ม” โดยไม่ใช้อีเมล/รหัสผ่าน ได้ร้าน MOCK เฉพาะ session เห็นรายรับ200 กำไร9 margin4.5% TTR28%; จำลองลด15% ได้รายรับ170 ค่าบริการ39.10 กำไร-14.10 ราคาที่ตรวจแล้วไม่ขาดทุน188.31บาท. เปิด10เมนูได้. ผู้ช่วยจากหน้าเว็บคืน MODEL_NUMBERS_REJECTED แล้วใช้ deterministic fallback แสดง-14.10ถูกต้อง; ไม่อ้างว่าคำตอบโมเดลผ่าน numerical validation. LINE แสดงไม่มีChannelและปิดปุ่มlink.
+
+VERIFIED_AWS_HTTP 05:46:47Z: ออก guest capability สองรอบ ได้คนละร้าน, dashboard900สตางค์, scenario-1410สตางค์; cross-store403, guesttokenบนnormalCognito route401, ไม่มีtoken401. ไม่บันทึกtokenหรือรหัสผ่าน. [ภาพเดโม](evidence/aws-oneclick-demo.jpg), [HTTP evidence](evidence/aws/guest-demo-live-evidence.json).
+
+ยังไม่ใช้ผลguestแทนสองบัญชีCognito/ข้อมูลร้านจริง; import/OCR/review/confirm/exportทุกขั้นผ่านguest browserยังไม่ตรวจครบ. Local43testsและผลoperatorเดิมมีขอบเขตตามส่วนก่อนหน้า. สถานะทั้งโครงการ PARTIAL_WITH_EXTERNAL_BLOCKERS; LINE/nativeplatform/realreceipt groundtruth ยังต้องมีข้อมูลภายนอก.
