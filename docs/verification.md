@@ -128,3 +128,8 @@ VERIFIED_LOCAL: ดีไซน์ใหม่หน้าเริ่มต้�
 VERIFIED_AWS_BROWSER: เผยแพร่staticจากad7bb9fบนS3/CloudFrontเดิมและhealthผ่าน; เข้าguestMOCK, เปิด10เมนู, dashboard9บาท, simulation15%=-14.10บาท. นำเข้าorders.xlsxผ่านbrowserจริงสำเร็จรับ1/ซ้ำ0/ผิด0/conflict0. Cognitoclassicbrandingจาก26ad3e6อ่านกลับCSSตรง/มีlogo, ตรวจหน้าsignup/signinจริงโดยไม่submitcredentialsหรือสร้างบัญชีใหม่. ไม่อ้างว่าได้ทดสอบทุกmutation, liveOCR, LINEหรือสองบัญชีCognitoครบflowในรอบนี้.
 
 ดู[การออกแบบและขอบเขตผลตรวจ](ui-design.md), [ภาพAWS MOCK](design/marginsight-desktop.jpg). การเปลี่ยนรอบนี้เป็นwebstaticและCognitoappearance ไม่มีIAMroles/บริการใหม่/การเปลี่ยนสูตร. คงPARTIAL_WITH_EXTERNAL_BLOCKERSตามรายการข้อมูลและintegrationเดิม.
+
+
+## Repository split / AWS handoff — 15 October 2026
+
+Backend npm ci/verify ผ่าน43tests/TypeScript/bundledhandlers/template structure/package. Frontend npm ci/verify ผ่าน5golden+artifact checks/TypeScript/policy/Nextstaticexport/package. Lockfiles ตัดอีก workspace ออกแล้ว ไม่มี cross-repo source imports. ตรวจ source ที่ย้าย/IaC semantics ตรงต้นทางและไม่ stage ignored files. Secret heuristic ทั้งสอง repoไม่พบ candidates. ไม่เรียก AWS/SAM deploy ในรอบนี้ ผลAWSก่อนหน้าไม่ใช่ผลรอบแยก. คู่มือส่งต่อพร้อม AI prompt อยู่ AWS-HANDOFF.md.

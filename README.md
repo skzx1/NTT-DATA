@@ -1,5 +1,9 @@
 # MarginSight
 
+แยก repository สำหรับพัฒนาต่อแล้ว: [Frontend](https://github.com/skzx1/MarginSight-Frontend) และ [Backend](https://github.com/skzx1/MarginSight-Backend). แต่ละ repo ติดตั้ง/build/ทดสอบได้เอง; repo นี้เก็บ source และประวัติก่อนแยกไว้ ไม่มีการย้ายข้อมูลร้านหรือสร้าง AWS stack ใหม่.
+
+ส่งต่อให้เพื่อนใช้ AI ขึ้นระบบ: [AWS-HANDOFF.md](AWS-HANDOFF.md) มีคำสั่งอัปเดต Backend/เผยแพร่ Frontend, สิ่งที่ต้องเตรียม, การตรวจ/rollback และ prompt พร้อมคัดลอก. ใช้ runbook นี้แทนคำสั่ง monorepo ในประวัติเมื่อลงจากสอง repo ใหม่.
+
 เว็บ: https://d2y04qc334m0rd.cloudfront.net
 
 สถานะ: **PARTIAL_WITH_EXTERNAL_BLOCKERS** เว็บและบริการ AWS ถูก deploy แล้ว ปุ่มเข้าเดโมระบบเต็มสร้างร้าน MOCK แยกต่อรอบอายุ 2 ชั่วโมง และมีตัวเลือกลองคำนวณแบบอ่านอย่างเดียว บัญชีใหม่สมัครและยืนยันอีเมลผ่าน Cognito แล้วตั้งชื่อร้านส่วนตัวว่างได้เอง ข้อมูลร้านไม่เปิดสาธารณะ

@@ -41,3 +41,6 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Independent repositories created during the frontend/backend split
+/repositories/

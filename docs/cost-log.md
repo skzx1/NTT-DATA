@@ -44,3 +44,8 @@ Self-service15ตุลาคม: deployโค้ดLambda/เว็บบนบ
 
 
 15ตุลาคม2026 รอบUIredesign: ตรวจBudgetHackathon-Team10ก่อนpublish limit350USD; ActualSpendยัง0.008USD snapshot03:55:27.194Z จึงไม่รับรองยอดปัจจุบัน. BuildในCloudShellและอัปเดตไฟล์S3/CloudFrontเดิมจากad7bb9f, invalidation4paths IWA6VTMIP623AYBMJGS8C50GH. ปรับCognitoappearanceของappclientเดิมด้วย26ad3e6 ไม่มีนโยบายauthใหม่/roleใหม่/paidcapacity/trainingjob. ทดสอบAWSguest1รอบ/จำลองราคา1request/XLSX1ไฟล์1แถว และเปิดเมนูอ่านข้อมูล; ไม่มีAI/OCRinferenceในรอบUIนี้. การทดสอบlocalไม่คิดเป็นAWSverificationหรือAWSmodelusage. เพดานทีม350USDรวม/เป้าหมายทดลอง25USDและquotasเดิมยังใช้.
+
+
+## Repository split / AWS handoff — 15 October 2026
+
+แยก source repositories และทำคู่มือ AWS handoff: local installs/build/tests/GitHub publication เท่านั้น ไม่มี AWS API/model/deploy/resource actions ในรอบนี้ ไม่อ้างยอดงบล่าสุดใหม่ เครดิตทีม350USDรวม/เป้าหมายtrial25USDเดิม.
