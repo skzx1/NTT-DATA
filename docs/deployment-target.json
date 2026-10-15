@@ -1,0 +1,14 @@
+{
+  "accountId": "109991964227",
+  "region": "ap-southeast-1",
+  "stackName": "marginsight",
+  "aiEnabled": true,
+  "budgetVerified": true,
+  "deploymentAuthorized": true,
+  "creditObservation": "Hackathon-Team10 BudgetUSD350 total / ActualSpendUSD0.008 at 2026-10-15T03:55:27.194Z; billing delayed",
+  "maxExperimentUsd": 25,
+  "aiRegion": "us-east-1",
+  "previousFailedStack": "marginsight-demo",
+  "webUrl": "https://d2y04qc334m0rd.cloudfront.net",
+  "status": "PARTIAL_WITH_EXTERNAL_BLOCKERS"
+}
